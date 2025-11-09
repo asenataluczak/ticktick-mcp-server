@@ -8,7 +8,7 @@ COPY package.json package-lock.json ./
 COPY src/ ./src/
 COPY tsconfig.json ./
 
-RUN --mount=type=cache,id=mcp-cache,target=/root/.npm npm install
+RUN --mount=type=cache,id=cache-mcp,target=/root/.npm npm install
 RUN npm run build
 
 FROM node:22.12-alpine AS release
